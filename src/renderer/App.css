@@ -1,28 +1,31 @@
-/*
- * @NOTE: Prepend a `~` to css file paths that are in your node_modules
- *        See https://github.com/webpack-contrib/sass-loader#imports
- */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-/*
 body {
   position: relative;
   color: white;
   height: 100vh;
   background: linear-gradient(
     200.96deg,
-    #fedc2a -29.09%,
-    #dd5789 51.77%,
-    #7a2c9e 129.35%
+    #001c37 -29.09%,
+    #0d4f5b 51.77%,
+    #9e2c45 129.35%
   );
   font-family: sans-serif;
   overflow-y: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-
+.app-container {
+  width: 75%;
+  margin: auto;
+}
+.todo-container {
+  width: 100%;
+  padding-top: 50px;
+  display: flex;
+}
+.todo-input {
+  padding: 5px;
+  font-size: 22px;
+  width: 100%;
+  outline: none;
+}
 button {
   background-color: white;
   padding: 10px 20px;
@@ -41,26 +44,58 @@ button:hover {
   transform: scale(1.05);
   opacity: 1;
 }
-
-li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  height: fit-content;
-  width: fit-content;
-  margin: 10px;
-}
-
-a:hover {
-  opacity: 1;
-  text-decoration: none;
-}
-
-.Hello {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.todo-list-container {
   margin: 20px 0;
-} */
+  border: 2px gray solid;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgb(0, 0, 0);
+  overflow: auto;
+  height: 70vh;
+}
+.todo-control-button {
+  display: flex;
+}
+
+.single-todo {
+  font-size: 18px;
+  border: 1px solid lightgray;
+  background-color: white;
+  color: black;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.single-todo p {
+  margin: 20px;
+}
+.remove-button {
+  padding: 2px 20px;
+  background: red;
+  margin: 5px;
+  cursor: pointer;
+  display: block;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+}
+.complete-button {
+  padding: 2px 20px;
+  background: green;
+  margin: 5px;
+  cursor: pointer;
+  display: block;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+}
+.complete-todo {
+  background-color: gray;
+}
+button:disabled {
+  background: lightgray;
+  cursor: alias;
+}

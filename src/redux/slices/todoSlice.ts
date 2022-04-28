@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice } from '@reduxjs/toolkit';
 
@@ -17,9 +18,18 @@ const todoSlice = createSlice({
     removeTodo: (state, action) => {
       state.todos = state.todos.filter((item) => item.id !== action.payload);
     },
+    completeTodo: (state, action) => {
+      state.todos = state.todos.map((item) => {
+        if (item.id === action.payload) {
+          item.complete = true;
+        }
+
+        return item;
+      });
+    },
   },
 });
 
-export const { addTodo, removeTodo } = todoSlice.actions;
+export const { addTodo, removeTodo, completeTodo } = todoSlice.actions;
 
 export default todoSlice.reducer;
